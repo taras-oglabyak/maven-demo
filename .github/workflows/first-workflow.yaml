@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Step-1, Hello
-      run: echo "hello, kurwa"
+      run: |
+        echo "hello, kurwa"
+        echo "end"
     - name: Print env
       run: printenv
