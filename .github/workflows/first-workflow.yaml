@@ -1,0 +1,13 @@
+name: run_tests
+
+on: workflow-dispatch
+
+jobs:
+
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step-1, Hello
+      run: echo "hello, kurwa"
+    - name: Print env
+      run: printenv
