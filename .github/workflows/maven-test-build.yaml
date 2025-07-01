@@ -1,4 +1,4 @@
-name: run_tests_and_report
+name: maven-run-tests-and-build
 
 on: workflow_dispatch
 
