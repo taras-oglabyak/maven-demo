@@ -1,4 +1,4 @@
-name: run_tests
+name: run_tests_and_report
 
 on: workflow_dispatch
 
