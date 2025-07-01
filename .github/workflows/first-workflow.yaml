@@ -11,5 +11,5 @@ jobs:
       run: |
         echo "hello, kurwa"
         echo "end"
-    - name: Print env
-      run: printenv
+    - name: Curr date
+      run: date
