@@ -13,3 +13,9 @@ jobs:
         echo "end"
     - name: Curr date
       run: date
+  report-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Process
+      run: date
+
