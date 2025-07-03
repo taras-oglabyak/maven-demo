@@ -28,3 +28,11 @@ jobs:
         java-version: '21'
     - name: Run tests
       run: mvn test
+
+  report-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Good Bye step
+      run: echo "good bye"
+    - name: Curr date
+      run: date
