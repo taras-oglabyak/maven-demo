@@ -15,6 +15,9 @@ jobs:
         run: echo j1s3; sleep 10
       - name: j1s4
         run: echo j1s3; exit 1
+      - name: j1s5
+        if: ${{ failure() }}
+        run: echo j1s5
 
   job2:
     needs: job1
