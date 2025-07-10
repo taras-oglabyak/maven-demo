@@ -17,6 +17,7 @@ jobs:
         run: echo j1s3; exit 1
 
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: j2s1
