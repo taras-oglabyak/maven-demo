@@ -1,0 +1,14 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      proceed: ${{ steps.set.outputs.flag }}
+    steps:
+      - id: set
+        run: echo "flag=yes" >> $GITHUB_OUTPUT
+
+  test:
+    runs-on: ubuntu-latest
+    if: ${{ jobs.build.outputs.proceed == 'yes' }}
+    steps:
+      - run: echo "Running tests"
