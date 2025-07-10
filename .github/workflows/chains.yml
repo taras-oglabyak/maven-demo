@@ -22,7 +22,7 @@ jobs:
       - name: j2s1
         run: echo j2s1
       - name: j2s2
-        if: ${{ failed() }}
+        if: ${{ failure() }}
         run: echo j2s2
       - name: j2s3
         run: echo j1s3
