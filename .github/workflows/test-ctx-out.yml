@@ -27,16 +27,3 @@ jobs:
     steps:
       - name: print 'github' props
         run: echo "${{ toJSON(github.job) }}"
-
-  execute2:
-    needs: init2
-    runs-on: ubuntu-latest
-    if: ${{ needs.init2.outputs.should_run == 'true' }}
-    steps:
-      - name: init
-        run: |
-          echo "init"
-          sleep 15
-      - name: execute request?
-        #if: ${{ always() }}
-        run: echo "execute request"
