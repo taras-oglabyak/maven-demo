@@ -19,7 +19,7 @@ jobs:
         run: echo "shouldrun=true" >> $GITHUB_OUTPUT
 
   execute:
-    needs: init2
+#    needs: init2
     runs-on: ubuntu-latest
     if: ${{ needs.init2.outputs.should_run == 'true' }}
     steps:
