@@ -1,4 +1,4 @@
-name: test-context
+name: test-context-output
 
 on: workflow_dispatch
 
