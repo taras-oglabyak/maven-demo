@@ -29,6 +29,7 @@ jobs:
         run: echo "${{ toJSON(github.job) }}"
 
   execute2:
+    needs: init2
     runs-on: ubuntu-latest
     if: ${{ needs.init2.outputs.should_run == 'true' }}
     steps:
