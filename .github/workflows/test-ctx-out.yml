@@ -38,5 +38,5 @@ jobs:
           echo "init"
           sleep 15
       - name: execute request?
-        if: ${{ always() }}
+        #if: ${{ always() }}
         run: echo "execute request"
