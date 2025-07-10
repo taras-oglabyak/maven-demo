@@ -16,11 +16,11 @@ jobs:
     steps:
       - name: print 'github' props
         id: set-should-run
-        run: echo "shouldRun=true" >> $GITHUB_OUTPUT
+        run: echo "should_run=true" >> $GITHUB_OUTPUT
 
   execute:
     runs-on: ubuntu-latest
-    if: ${{ jobs.init2.outputs.should_run == 'true' }}
+    if: ${{ needs.init2.outputs.should_run == 'true' }}
     steps:
       - name: execute request
         run: echo "execute request"
