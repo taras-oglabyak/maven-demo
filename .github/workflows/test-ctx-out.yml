@@ -4,6 +4,7 @@ on: workflow_dispatch
 
 jobs:
   init1:
+    needs: [ "init2", "execute" ]
     runs-on: ubuntu-latest
     steps:
       - name: print 'github' props
