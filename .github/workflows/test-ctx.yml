@@ -19,8 +19,8 @@ jobs:
         run: echo "shouldRun=true" >> $GITHUB_OUTPUT
 
   execute:
-    if: ${{ jobs.init2.outputs.should_run == 'true' }}
     runs-on: ubuntu-latest
+    if: ${{ jobs.init2.outputs.should_run == 'true' }}
     steps:
       - name: execute request
         run: echo "execute request"
