@@ -1,4 +1,4 @@
-name: test-context-output
+name: chains
 
 on: workflow_dispatch
 
