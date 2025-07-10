@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
 
-  init2:
+  init:
     runs-on: ubuntu-latest
     outputs:
       should_run: ${{ steps.set-should-run.outputs.shouldrun}}
@@ -13,16 +13,24 @@ jobs:
         id: set-should-run
         run: echo "shouldrun=true" >> $GITHUB_OUTPUT
 
-  execute:
-    needs: init2
+  execute1:
+    needs: init
     runs-on: ubuntu-latest
-    if: ${{ needs.init2.outputs.should_run == 'true' }}
+    if: ${{ needs.init.outputs.should_run == 'true' }}
     steps:
       - name: execute request
         run: echo "execute request"
 
-  init1:
-    needs: [ "init2", "execute" ]
+  execute2:
+#    needs: init
+    runs-on: ubuntu-latest
+    if: ${{ needs.init.outputs.should_run == 'true' }}
+    steps:
+      - name: execute request
+        run: echo "execute request"
+
+  end:
+    needs: [ "init", "execute1" ]
     runs-on: ubuntu-latest
     steps:
       - name: print 'github' props
