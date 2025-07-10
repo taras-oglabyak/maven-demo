@@ -33,3 +33,11 @@ jobs:
         run: echo j2s2
       - name: j2s3
         run: echo j1s3
+
+  job3:
+    needs: [ job1, job2 ]
+    if: ${{ cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: j3s1
+        run: echo j3s1
