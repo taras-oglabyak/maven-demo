@@ -12,7 +12,7 @@ jobs:
   init2:
     runs-on: ubuntu-latest
     outputs:
-      should_run: ${{ steps.set-should-run.outputs.shouldRun}}
+      should_run: ${{ steps.set-should-run.outputs.should_run}}
     steps:
       - name: print 'github' props
         id: set-should-run
