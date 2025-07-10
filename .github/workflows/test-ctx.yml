@@ -3,8 +3,24 @@ name: test-context
 on: workflow_dispatch
 
 jobs:
-  run:
+  init1:
     runs-on: ubuntu-latest
     steps:
       - name: print 'github' props
         run: echo "${{ toJSON(github.job) }}"
+
+  init2:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.set-should-run.outputs.shouldRun}}
+    steps:
+      - name: print 'github' props
+        id: set-should-run
+        run: echo "shouldRun=true" >> $GITHUB_OUTPUT
+
+  execute:
+    if: ${{ needs.init2.outputs.should_run == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: execute request
+        run: echo "execute request"
