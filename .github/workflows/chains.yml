@@ -18,6 +18,8 @@ jobs:
       - name: j1s5
         if: ${{ failure() }}
         run: echo j1s5
+      - name: j1s6
+        run: echo j1s6
 
   job2:
     needs: job1
