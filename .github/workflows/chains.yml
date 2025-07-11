@@ -27,10 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: j2s1
-        run: echo j2s1
+        run: echo j2s1; sleep 10
       - name: j2s2
         if: ${{ failure() }}
-        run: echo j2s2; sleep 10
+        run: echo j2s2
       - name: j2s3
         run: echo j1s3
 
