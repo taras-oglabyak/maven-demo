@@ -12,4 +12,4 @@ jobs:
           echo variable: ${{ vars.REPO_VAR1 }}
       - name: st2
         run: |
-          echo secret: ${{ vars.REPO_SECRET1 }}
+          echo secret: ${{ secrets.REPO_SECRET1 }}
