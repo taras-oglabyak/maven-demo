@@ -1,0 +1,25 @@
+name: strategy-test
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ "os1", "os2" ]
+        ver: [ 1, 2, 3]
+    steps:
+      - id: step1
+        name: Step 1
+        run: |
+          echo "os: ${{ matrix.os }}; ver: ${{ matrix.ver }}"
+
+  job-end:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - id: step1
+        name: Finish
+        run: echo "done"
