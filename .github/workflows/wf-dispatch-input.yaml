@@ -28,4 +28,4 @@ jobs:
       - id: step2
         name: Step 2
         run: |
-          echo "inputs: ${{ fromJSON(inputs) }}"
+          echo "inputs: ${{ toJSON(inputs) }}"
