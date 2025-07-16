@@ -9,7 +9,10 @@ on:
         default: var1-value
       var2:
         required: false
-        type: number
+        type: choice
+        options:
+          - one
+          - two
 
 jobs:
   job1:
