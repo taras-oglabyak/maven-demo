@@ -13,6 +13,9 @@ on:
         options:
           - one
           - two
+      var3:
+        required: false
+        type: string
 
 jobs:
   job1:
