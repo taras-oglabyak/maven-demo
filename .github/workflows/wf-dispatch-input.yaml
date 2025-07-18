@@ -4,16 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       var1:
+        description: it is var1
         required: true
         type: string
         default: var1-value
       var2:
+        description: it is var2
         required: false
         type: choice
         options:
           - one
           - two
       var3:
+        description: it is var3
         required: false
         type: string
 
