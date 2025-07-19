@@ -36,7 +36,13 @@ jobs:
         distribution: 'liberica'
         java-version: '21'
     - name: Run tests
-      run: mvn test
+      run: mvn package
+    - name: Upload
+      uses: actions/upload-artifact@4
+      with:
+        name: application
+        path: |
+          target/maven-demo*.jar
 
   report-job:
     needs: run-tests
