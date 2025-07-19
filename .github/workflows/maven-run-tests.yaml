@@ -52,3 +52,10 @@ jobs:
       run: echo "good bye"
     - name: Curr date
       run: date
+    - name: Fetch artifacts
+      uses: actions/download-artifact
+      with:
+        name: application
+        path: out/
+    - name: Print checksums
+      run: sha256sum out/*
