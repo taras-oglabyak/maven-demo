@@ -3,7 +3,7 @@ name: maven-run-tests
 on:
   push:
     branches:
-    - main1
+    - main
 
 jobs:
 
