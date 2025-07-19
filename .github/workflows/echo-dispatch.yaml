@@ -11,8 +11,10 @@ jobs:
       run: |
         echo "hello, kurwa"
         echo "end"
+
     - name: Curr date
       run: date
+
   report-job:
     runs-on: ubuntu-latest
     steps:
