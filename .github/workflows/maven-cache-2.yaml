@@ -1,4 +1,4 @@
-name: maven-cache
+name: maven-cache-2
 
 on: workflow_dispatch
 
