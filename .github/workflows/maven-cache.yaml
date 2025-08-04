@@ -17,11 +17,11 @@ jobs:
         distribution: 'liberica'
         java-version: '21'
 
-    - name: Init a cache
-      uses: actions/cache@v4
-      with:
-        path: ~/.m2/repository
-        key: {{ runner.os }}-maven-{{ hashFiles('**/pom.xml') }}
+#    - name: Init a cache
+#      uses: actions/cache@v4
+#      with:
+#        path: ~/.m2/repository
+#        key: {{ runner.os }}-maven-{{ hashFiles('**/pom.xml') }}
 
     - name: Run tests
       run: mvn package
@@ -39,11 +39,11 @@ jobs:
           distribution: 'liberica'
           java-version: '21'
 
-      - name: Init a cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository
-          key: {{ runner.os }}-maven-{{ hashFiles('**/pom.xml') }}
+#      - name: Init a cache
+#        uses: actions/cache@v4
+#        with:
+#          path: ~/.m2/repository
+#          key: {{ runner.os }}-maven-{{ hashFiles('**/pom.xml') }}
 
       - name: Run tests
         run: mvn package
