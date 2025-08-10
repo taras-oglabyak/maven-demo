@@ -1,0 +1,15 @@
+name: Outer WF
+
+on: workflow_dispatch
+
+jobs:
+  call_inner:
+    uses: ./github/workflows/reusable.yaml
+  job_first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: init all
+        run: echo "INITING"
+      - name: ending
+        run: echo "END!!"
+
