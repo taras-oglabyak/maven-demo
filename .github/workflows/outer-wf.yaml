@@ -1,5 +1,4 @@
-name: Outer WF
-
+name: outer-wf
 on: workflow_dispatch
 
 jobs:
@@ -12,4 +11,3 @@ jobs:
         run: echo "INITING"
       - name: ending
         run: echo "END!!"
-
