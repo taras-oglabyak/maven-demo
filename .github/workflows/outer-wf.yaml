@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 jobs:
   call_inner:
-    uses: ./github/workflows/reusable.yaml
+    uses: ./.github/workflows/reusable.yaml
   job_first:
     runs-on: ubuntu-latest
     steps:
