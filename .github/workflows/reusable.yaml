@@ -6,6 +6,9 @@ on:
       sraka:
         required: true
         type: string
+    secrets:
+      secret-sraka:
+        required: true
 
 jobs:
   job1:
