@@ -27,5 +27,7 @@ jobs:
   job3:
     runs-on: ubuntu-latest
     steps:
-      - name: Ending activities
+      - name: "Ending activities: inputs"
         run: echo ${{ inputs.sraka }}
+      - name: "Ending activities: secrets"
+        run: echo ${{ secrets.secret-sraka }}
