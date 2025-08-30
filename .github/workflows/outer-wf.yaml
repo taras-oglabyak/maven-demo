@@ -6,6 +6,8 @@ jobs:
     uses: ./.github/workflows/reusable.yaml
     with:
       sraka: SRAKAAA
+    secrets:
+      secret-sraka: secsraka!!!
   job_first:
     runs-on: ubuntu-latest
     steps:
