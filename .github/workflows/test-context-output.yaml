@@ -21,7 +21,7 @@ jobs:
       - name: execute request
         run: echo "execute request"
 
-# will be: start in parallel / skipped w/o "needs: init"
+# will be: start in parallel: is skipped due to missing "needs: init"
   execute2:
 #    needs: init
     runs-on: ubuntu-latest
