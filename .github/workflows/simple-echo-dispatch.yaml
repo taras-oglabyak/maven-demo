@@ -1,4 +1,4 @@
-name: echo-dispatch
+name: simple-echo-dispatch
 
 on: workflow_dispatch
 

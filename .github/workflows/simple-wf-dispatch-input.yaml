@@ -1,4 +1,4 @@
-name: wf-dispatch-input
+name: simple-wf-dispatch-input
 
 on:
   workflow_dispatch:

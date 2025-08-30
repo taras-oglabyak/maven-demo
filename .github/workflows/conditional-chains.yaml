@@ -1,4 +1,4 @@
-name: chains
+name: conditional-chains
 
 on: workflow_dispatch
 
