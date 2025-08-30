@@ -4,6 +4,8 @@ on: workflow_dispatch
 jobs:
   call_inner:
     uses: ./.github/workflows/reusable.yaml
+    with:
+      sraka: SRAKAAA
   job_first:
     runs-on: ubuntu-latest
     steps:
