@@ -7,5 +7,6 @@ jobs:
   process:
     runs-on: ubuntu-latest
     steps:
-    - name: printenv-sort
+    - id: printenv-sort-step
+      name: printenv-sort
       run: printenv | sort
