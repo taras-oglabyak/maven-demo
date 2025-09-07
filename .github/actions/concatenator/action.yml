@@ -9,3 +9,7 @@ runs:
       name: Print date
       shell: bash
       run: echo 'date'
+    - id: f2
+      name: Print env
+      shell: bash
+      run: printenv

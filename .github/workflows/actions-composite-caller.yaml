@@ -9,6 +9,9 @@ jobs:
       - name: init
         run: echo 'init'
 
+      - name: get repo
+        uses: actions/checkout@v4
+
       - name: execute action
         uses: ./.github/actions/concatenator
 
