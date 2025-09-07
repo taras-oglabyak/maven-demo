@@ -1,9 +1,9 @@
-name: Call Composite action
+name: actions-composite-caller
 
 on: workflow_dispatch
 
 jobs:
-  process:
+  process1:
     runs-on: ubuntu-latest
     steps:
       - name: init
