@@ -1,0 +1,16 @@
+name: Call Composite action
+
+on: workflow_dispatch
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: init
+        run: echo 'init'
+
+      - name: execute action
+        uses: ./.github/actions/concatenator
+
+      - name: end
+        run: echo 'end'

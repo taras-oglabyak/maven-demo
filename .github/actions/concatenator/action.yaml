@@ -1,0 +1,11 @@
+name: Concatenate strings
+
+description: Description of the action
+
+runs:
+  using: composite
+  steps:
+    - id: f1
+      name: Print date
+      shell: bash
+      run: date
