@@ -8,4 +8,4 @@ runs:
     - id: f1
       name: Print date
       shell: bash
-      run: date
+      run: echo 'date'
