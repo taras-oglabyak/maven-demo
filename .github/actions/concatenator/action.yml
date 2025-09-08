@@ -2,6 +2,12 @@ name: Concatenate strings
 
 description: Description of the action
 
+inputs:
+  sraka:
+    description: 'SRAKA'
+    required: false
+    default: 'SRAKA1'
+
 runs:
   using: composite
   steps:
@@ -13,3 +19,7 @@ runs:
       name: Print env
       shell: bash
       run: printenv
+    - id: f3
+      name: Print input
+      shell: bash
+      run: echo "${{ inputs.sraka }}"
