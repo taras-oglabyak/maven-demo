@@ -8,13 +8,18 @@ inputs:
     required: false
     default: 'SRAKA1'
 
+outputs:
+  is_sraka:
+    description: 'is sraka'
+    value: ${{ steps.f1.outputs.varrr }}
+
 runs:
   using: composite
   steps:
     - id: f1
       name: Print date
       shell: bash
-      run: echo 'date'
+      run: echo 'varrr=1' >> $GITHUB_OUTPUT
     - id: f2
       name: Print env
       shell: bash
