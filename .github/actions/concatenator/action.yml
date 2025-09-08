@@ -22,4 +22,4 @@ runs:
     - id: f3
       name: Print input
       shell: bash
-      run: echo "${{ inputs.sraka }}"
+      run: echo "sraka is the next - ${{ inputs.sraka }}"
