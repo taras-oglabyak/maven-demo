@@ -1,0 +1,9 @@
+name: Upload data to AWS S3
+
+description: Upload data to AWS S3 bucket
+
+runs:
+  using: node20
+  main: dist/index.js
+
+
