@@ -4,7 +4,8 @@ const exec = require('@actions/exec');
 
 const task = () => {
   core.notice('From JS');
-  core.warning('warn?');
+  const srakaInput = core.getInput('sraka');
+  core.info(`input sraka is actually: ${srakaInput}`);
 
 };
 
