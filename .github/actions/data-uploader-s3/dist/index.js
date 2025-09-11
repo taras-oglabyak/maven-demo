@@ -4,6 +4,7 @@ const exec = require('@actions/exec');
 
 const task = () => {
   core.notice('From JS');
+  core.warn('warn?');
 
 };
 
