@@ -15,6 +15,9 @@ jobs:
       - name: execute action
         id: execute-action
         uses: ./.github/actions/data-uploader-s3
+
+      - name: summary
+        run: echo "data is - ${{ steps.execute-action.outputs.out-sraka }}"
 #        with:
 #          sraka: srAKA
 
