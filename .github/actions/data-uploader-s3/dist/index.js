@@ -8,7 +8,7 @@ const task = () => {
   const srakaInput = core.getInput('sraka', {required: true});
   core.notice(`input sraka is actually: ${srakaInput}`);
 
-  core.setOutput('out-skara', `res is ${srakaInput}`);
+  core.setOutput('out-sraka', `res is ${srakaInput}`);
 
 };
 
