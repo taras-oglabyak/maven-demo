@@ -8,8 +8,10 @@ inputs:
     required: false
     default: 'SRAKA2'
 
+outputs:
+  out-sraka:
+    description: out sraka
+
 runs:
   using: node20
   main: dist/index.js
-
-
