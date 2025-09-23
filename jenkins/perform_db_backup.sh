@@ -1,0 +1,12 @@
+#/bin/bash
+
+DB_USERNAME=$DATABASE_USER
+DB_PASSWORD=$DATABASE_USER_PASSWORD
+DB_HOST=$DATABASE_HOST
+DB_NAME=$DATABASE_NAME
+S3_BUCKET_NAME=$AWS_S3_BUCKET
+
+
+mysqldump -u ${DB_USERNAME} -p${DB_PASSWORD} -h ${DB_HOST} ${DB_NAME} > $HOME/db_dump.sql && \
+aws s3 cp $HOME/db_dump.sql s3://${S3_BUCKET_NAME}/db_admin/db_dump.sql
+

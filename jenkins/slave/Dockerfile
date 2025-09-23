@@ -1,11 +1,12 @@
 FROM fedora:41
  
-RUN yum -y install openssh-server
+RUN yum -y install \
+        openssh-server \
+        mysql \
+        java-21-openjdk \
+        python3-pip
 
-RUN yum -y install mysql
-
-RUN yum -y install python3-pip && \
-    pip3 install --upgrade pip && \
+RUN pip3 install --upgrade pip && \
     pip3 install awscli
 
 

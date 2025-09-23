@@ -1,0 +1,9 @@
+
+docker cp ./jenkins/slave/test-remote-key jenkins:/tmp/test-remote-key
+
+docker cp ./jenkins/perform_db_backup.sh slave:/tmp/perform_db_backup.sh
+
+mysqldump -u root -proot -h mysql admin > /tmp/db_dump.sql && \
+aws s3 cp /tmp/db_dump.sql s3://tarasog-jenkins-mysql-dumps/db_admin/db_dump.sql
+
+
