@@ -1,0 +1,21 @@
+services:
+
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    ports:
+      - "9090:8080"
+      - "50000:50000"
+    volumes:
+      - /Users/tohl/work/docker-volumes/personal/jenkins:/var/jenkins_home
+
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: admin
+    ports:
+      - "53306:3306"
+    volumes:
+      - ./mysql-data:/docker-entrypoint-initdb.d
