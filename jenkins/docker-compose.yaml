@@ -8,6 +8,8 @@ services:
       - "50000:50000"
     volumes:
       - ./docker-volumes/jenkins:/var/jenkins_home
+    networks:
+      - net
 
   mysql:
     image: mysql
@@ -19,3 +21,8 @@ services:
       - "53306:3306"
     volumes:
       - ./mysql-data:/docker-entrypoint-initdb.d
+    networks:
+      - net
+
+networks:
+  net:
