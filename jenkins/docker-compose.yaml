@@ -2,7 +2,9 @@ services:
 
   jenkins:
     container_name: jenkins
-    image: jenkins/jenkins:lts
+    image: jenkins-custom
+    build:
+      context: jenkins
     ports:
       - "9090:8080"
       - "50000:50000"
@@ -13,7 +15,7 @@ services:
 
   slave:
     container_name: slave
-    image: slave
+    image: slave-custom
     build:
       context: slave
     networks:
