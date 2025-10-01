@@ -1,0 +1,10 @@
+- name: Playbook 1
+  hosts: test1
+  tasks:
+    - name: first task
+      shell: echo "1st" > /tmp/ansbl1
+    - name: second task
+      shell: echo "2st" > /tmp/ansbl2
+    - name: test dbg
+      debug:
+        msg: "{{ MSG_VAR }}"
