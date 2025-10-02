@@ -34,5 +34,25 @@ services:
     networks:
       - net
 
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab
+    hostname: 'gitlab.example.com'
+#    environment:
+#      GITLAB_OMNIBUS_CONFIG: |
+#         Add any other gitlab.rb configuration here, each on its own line
+#        external_url 'https://gitlab.example.com'
+    ports:
+      - '5080:80'
+#      - '50443:443'
+#      - '5022:22'
+    volumes:
+      - './docker-volumes/gitlab/config:/etc/gitlab'
+      - './docker-volumes/gitlab/logs:/var/log/gitlab'
+      - './docker-volumes/gitlab/data:/var/opt/gitlab'
+    shm_size: '256m'
+    networks:
+      - net
+
 networks:
   net:
