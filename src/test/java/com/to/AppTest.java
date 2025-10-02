@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class AppTest {
 
     @Test
-    @Tag("Test 1")
+    @Tag("Test 10")
     void shouldPass() {
         var res = 1 + 2 < 5;
         assertThat(res).isTrue();
