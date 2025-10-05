@@ -1,0 +1,38 @@
+name: test-conditional-context-output
+
+on: workflow_dispatch
+
+jobs:
+
+  init:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.set-should-run.outputs.shouldrun}}
+    steps:
+      - name: print 'github' props
+        id: set-should-run
+        run: echo "shouldrun=true" >> $GITHUB_OUTPUT
+
+  execute1:
+    needs: init
+    runs-on: ubuntu-latest
+    if: ${{ needs.init.outputs.should_run == 'true' }}
+    steps:
+      - name: execute request
+        run: echo "execute request"
+
+# will be: start in parallel: is skipped due to missing "needs: init"
+  execute2:
+#    needs: init
+    runs-on: ubuntu-latest
+    if: ${{ needs.init.outputs.should_run == 'true' }}
+    steps:
+      - name: execute request
+        run: echo "execute request"
+
+  end:
+    needs: [ "init", "execute1" ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: print 'github' props
+        run: echo "${{ toJSON(github.job) }}"

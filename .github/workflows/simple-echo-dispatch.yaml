@@ -1,0 +1,23 @@
+name: simple-echo-dispatch
+
+on: workflow_dispatch
+
+jobs:
+
+  build-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step-1, Hello
+      run: |
+        echo "hello, kurwa"
+        echo "end"
+
+    - name: Curr date
+      run: date
+
+  report-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Process
+      run: date
+

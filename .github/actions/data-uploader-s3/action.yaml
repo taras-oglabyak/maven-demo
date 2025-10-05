@@ -1,0 +1,17 @@
+name: Upload data to AWS S3
+
+description: Upload data to AWS S3 bucket
+
+inputs:
+  sraka:
+    description: 'SRAKA'
+    required: false
+    default: 'SRAKA2'
+
+outputs:
+  out-sraka:
+    description: out sraka
+
+runs:
+  using: node20
+  main: dist/index.js

@@ -1,0 +1,12 @@
+name: simple-echo-printenv
+
+on: workflow_dispatch
+
+jobs:
+
+  process:
+    runs-on: ubuntu-latest
+    steps:
+    - id: printenv-sort-step
+      name: printenv-sort
+      run: printenv | sort

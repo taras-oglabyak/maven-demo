@@ -1,0 +1,69 @@
+name: maven-run-tests
+
+on:
+#  push:
+#    branches:
+#    - main
+  workflow_dispatch: {}
+
+jobs:
+
+  echo-hello-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: First step
+      run: echo "hello"
+
+  echo-hello-job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First step2
+        run: echo "hello2"
+
+  run-tests:
+    needs:
+      - echo-hello-job
+      - echo-hello-job2
+    runs-on: ubuntu-latest
+    steps:
+    - name: First step
+      run: |
+        echo date
+
+    - name: Get code
+      uses: actions/checkout@v4
+
+    - name: Install JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'liberica'
+        java-version: '21'
+
+    - name: Run tests
+      run: mvn package
+
+    - name: Upload
+      uses: actions/upload-artifact@v4
+      with:
+        name: application
+        path: |
+          target/maven-demo*.jar
+
+  report-job:
+    needs: run-tests
+    runs-on: ubuntu-latest
+    steps:
+    - name: Good Bye step
+      run: echo "good bye"
+
+    - name: Curr date
+      run: date
+
+    - name: Fetch artifacts
+      uses: actions/download-artifact@v4
+      with:
+        name: application
+        path: out/
+
+    - name: Print checksums
+      run: sha256sum out/*

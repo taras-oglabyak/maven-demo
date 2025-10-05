@@ -1,0 +1,23 @@
+name: outer-wf
+on: workflow_dispatch
+
+jobs:
+  call_inner:
+    uses: ./.github/workflows/reusable.yaml
+    with:
+      sraka: SRAKAAA
+    secrets:
+      secret-sraka: sec-----------sraka!!!
+  post_call_inner:
+    runs-on: ubuntu-latest
+    needs: call_inner
+    steps:
+      - name: Summary
+        run: echo ${{ needs.call_inner.outputs.result-sraka }}
+  job_first:
+    runs-on: ubuntu-latest
+    steps:
+      - name: init all
+        run: echo "INITING"
+      - name: ending
+        run: echo "END!!"

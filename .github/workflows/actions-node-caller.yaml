@@ -1,0 +1,23 @@
+name: actions-node-caller
+
+on: workflow_dispatch
+
+jobs:
+  process1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: init
+        run: echo 'init'
+
+      - name: get repo
+        uses: actions/checkout@v4
+
+      - name: execute action
+        id: execute-action
+        uses: ./.github/actions/data-uploader-s3
+
+      - name: summary
+        run: echo "data is - ${{ steps.execute-action.outputs.out-sraka }}"
+#        with:
+#          sraka: srAKA
+

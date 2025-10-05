@@ -1,0 +1,47 @@
+name: reusable
+
+on:
+  workflow_call:
+    inputs:
+      sraka:
+        required: true
+        type: string
+    secrets:
+      secret-sraka:
+        required: true
+    outputs:
+      result-sraka:
+        description: RESULT SRAKA
+        value: ${{ jobs.job4.outputs.res }}
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: St1
+        run: echo 1
+      - name: St1
+        run: echo 1
+  job2:
+    runs-on: ubuntu-latest
+    needs: [ "job1" ]
+    steps:
+      - name: Ending activities
+        run: echo "end"
+  job3:
+    runs-on: ubuntu-latest
+    needs: [ "job2" ]
+    steps:
+      - name: "Ending activities: inputs"
+        run: echo ${{ inputs.sraka }}
+      - name: "Ending activities: secrets"
+        run: echo ${{ secrets.secret-sraka }}
+  job4:
+    runs-on: ubuntu-latest
+    needs: [ "job3" ]
+    outputs:
+      res: ${{ steps.st1.outputs.step-resulting-sraka }}
+    steps:
+      - id: st1
+        name: "Set result!"
+        run: echo "step-resulting-sraka=doneeee" >> $GITHUB_OUTPUT

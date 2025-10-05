@@ -1,0 +1,50 @@
+name: conditional-chains
+
+on: workflow_dispatch
+
+jobs:
+
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: j1s1
+        run: echo j1s1
+
+      - name: j1s2
+        run: echo j1s2
+
+      - name: j1s3
+        run: echo j1s3; sleep 10
+
+      - name: j1s4
+        run: echo j1s3; exit 1
+
+      - name: j1s5
+        if: ${{ failure() }}
+        run: echo j1s5
+
+      - name: j1s6
+        run: echo j1s6
+
+  job2:
+    needs: job1
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: j2s1
+        run: echo j2s1; sleep 10
+
+      - name: j2s2
+        if: ${{ failure() }}
+        run: echo j2s2
+
+      - name: j2s3
+        run: echo j1s3
+
+  job3:
+    needs: [ job1, job2 ]
+    if: ${{ cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: j3s1
+        run: echo j3s1
